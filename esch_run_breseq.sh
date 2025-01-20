@@ -8,7 +8,7 @@
 
 # Usage
 # To process the folders whose names contain XYZ
-# sbatch -J XYZ ~/Code/Genomics_scripts/ecoli_run_breseq.sh XYZ
+# sbatch -J XYZ ~/Code/Genomics_scripts/esch_run_breseq.sh XYZ
 
 # References
 ecoli_chr="/n/scratch/users/a/anv888/Genomics/Reference_genomes/Escherichia_coli_MG1655_U00096.3.gb"
