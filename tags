@@ -1,0 +1,13 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+get_file_mapping	gather_breseq_output.py	/^def get_file_mapping(name):$/;"	f
+input_folder	gather_breseq_output.py	/^input_folder = Path("\/mnt\/sysbio\/PAULSSON LAB\/Personal_Folders\/Antoine\/Genomics\/Raw_sequencing_data\/Vibrio\/Breseq_output")$/;"	v
+input_subfolders	gather_breseq_output.py	/^input_subfolders = sorted([f for f in input_folder.iterdir() if f.is_dir()], $/;"	v
+key	gather_breseq_output.py	/^                         key=lambda x: x.name)$/;"	v
+output_folder	gather_breseq_output.py	/^output_folder = Path("\/home\/antoine\/Documents\/Travel\/Genomics\/Vibrio\/Gathered_Breseq_data")$/;"	v
+subfolders	gather_breseq_output.py	/^subfolders = ["GD", "VCF", "HTML", "Coverage"]$/;"	v
+total_files	gather_breseq_output.py	/^total_files = len(input_subfolders) * 4$/;"	v
