@@ -4,10 +4,24 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
-get_file_mapping	gather_breseq_output.py	/^def get_file_mapping(name):$/;"	f
-input_folder	gather_breseq_output.py	/^input_folder = Path("\/mnt\/sysbio\/PAULSSON LAB\/Personal_Folders\/Antoine\/Genomics\/Raw_sequencing_data\/Vibrio\/Breseq_output")$/;"	v
-input_subfolders	gather_breseq_output.py	/^input_subfolders = sorted([f for f in input_folder.iterdir() if f.is_dir()], $/;"	v
-key	gather_breseq_output.py	/^                         key=lambda x: x.name)$/;"	v
-output_folder	gather_breseq_output.py	/^output_folder = Path("\/home\/antoine\/Documents\/Travel\/Genomics\/Vibrio\/Gathered_Breseq_data")$/;"	v
-subfolders	gather_breseq_output.py	/^subfolders = ["GD", "VCF", "HTML", "Coverage"]$/;"	v
-total_files	gather_breseq_output.py	/^total_files = len(input_subfolders) * 4$/;"	v
+get_file_mapping	gather_breseq_output_esch.py	/^def get_file_mapping(name):$/;"	f
+get_file_mapping	gather_breseq_output_rpoS.py	/^def get_file_mapping(name):$/;"	f
+get_file_mapping	gather_breseq_output_vibrio.py	/^def get_file_mapping(name):$/;"	f
+input_folder	gather_breseq_output_esch.py	/^input_folder = Path("\/home\/anv888\/Scratch\/Genomics\/Breseq_output_LTEE_ecoli")$/;"	v
+input_folder	gather_breseq_output_rpoS.py	/^input_folder = Path("\/home\/anv888\/Scratch\/Genomics\/Breseq_output_rpoS")$/;"	v
+input_folder	gather_breseq_output_vibrio.py	/^input_folder = Path("\/mnt\/sysbio\/PAULSSON LAB\/Personal_Folders\/Antoine\/Genomics\/Raw_sequencing_data\/Vibrio\/Breseq_output")$/;"	v
+input_subfolders	gather_breseq_output_esch.py	/^input_subfolders = sorted([f for f in input_folder.iterdir() if f.is_dir()], $/;"	v
+input_subfolders	gather_breseq_output_rpoS.py	/^input_subfolders = sorted([f for f in input_folder.iterdir() if f.is_dir()], $/;"	v
+input_subfolders	gather_breseq_output_vibrio.py	/^input_subfolders = sorted([f for f in input_folder.iterdir() if f.is_dir()], $/;"	v
+key	gather_breseq_output_esch.py	/^                         key=lambda x: x.name)$/;"	v
+key	gather_breseq_output_rpoS.py	/^                         key=lambda x: x.name)$/;"	v
+key	gather_breseq_output_vibrio.py	/^                         key=lambda x: x.name)$/;"	v
+output_folder	gather_breseq_output_esch.py	/^output_folder = Path("\/home\/anv888\/Scratch\/Genomics\/Data_LTEE_ecoli")$/;"	v
+output_folder	gather_breseq_output_rpoS.py	/^output_folder = Path("\/home\/anv888\/Scratch\/Genomics\/Data_rpoS")$/;"	v
+output_folder	gather_breseq_output_vibrio.py	/^output_folder = Path("\/home\/antoine\/Documents\/Travel\/Genomics\/Vibrio\/Gathered_Breseq_data")$/;"	v
+subfolders	gather_breseq_output_esch.py	/^subfolders = ["GD", "VCF", "HTML", "Coverage"]$/;"	v
+subfolders	gather_breseq_output_rpoS.py	/^subfolders = ["GD", "VCF", "HTML", "Coverage"]$/;"	v
+subfolders	gather_breseq_output_vibrio.py	/^subfolders = ["GD", "VCF", "HTML", "Coverage"]$/;"	v
+total_files	gather_breseq_output_esch.py	/^total_files = len(input_subfolders) * 4$/;"	v
+total_files	gather_breseq_output_rpoS.py	/^total_files = len(input_subfolders) * 4$/;"	v
+total_files	gather_breseq_output_vibrio.py	/^total_files = len(input_subfolders) * 4$/;"	v
