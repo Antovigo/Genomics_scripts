@@ -29,6 +29,9 @@ lineage=$1
 # Clear empty folders
 #find $breseq_folder -type d -empty -delete
 
-echo "Files to process"
+echo "Files to process:"
+
 for i in $reads_folder/$lineage
+do
 	echo $i
+done
