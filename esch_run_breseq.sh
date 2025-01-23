@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH -c 8                               # Request 8 cores
-#SBATCH -t 2-12:00                         # Runtime in D-HH:MM format
+#SBATCH -t 1-12:00                         # Runtime in D-HH:MM format
 #SBATCH -p medium                           # Partition to run in
 #SBATCH --mem-per-cpu=1G                   # Memory total in GiB
 #SBATCH -o output/%x_%j.out                 # File to which STDOUT will be written
@@ -29,7 +29,12 @@ source activate breseq
 # Clear empty folders
 #find $breseq_folder -type d -empty -delete
 
-for i in $reads_folder/$lineage*
+echo "Files to process"
+for i in $reads_folder/$lineage
+	echo $i
+
+echo "Processing files"
+for i in $reads_folder/$lineage
 do
         name=$(basename $i)
         input_folder=$reads_folder/$name
