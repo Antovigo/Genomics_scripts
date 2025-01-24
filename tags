@@ -4,6 +4,7 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+IR_variants	extract_fims.py	/^IR_variants = {$/;"	v
 aligner	extract_fims.py	/^aligner = Align.PairwiseAligner()$/;"	v
 check_alignment	extract_fims.py	/^def check_alignment(read_seq, ref, score_thr = 130):$/;"	f
 df	extract_fims.py	/^    df = pd.DataFrame(hits, columns=['read_id', 'on', 'read_seq', 'score', 'top_strand', 'read_start', 'read_end', 'ref_start', 'ref_end', 'mutations'])$/;"	v
@@ -26,15 +27,19 @@ key	gather_breseq_output_esch.py	/^                         key=lambda x: x.name
 key	gather_breseq_output_rpoS.py	/^                         key=lambda x: x.name)$/;"	v
 key	gather_breseq_output_vibrio.py	/^                         key=lambda x: x.name)$/;"	v
 name	extract_fims.py	/^    name = Path(file).stem$/;"	v
-off_hit	extract_fims.py	/^        off_hit = check_alignment(read_seq, off_seq)$/;"	v
+off_hit	extract_fims.py	/^            off_hit = check_alignment(read_seq, off_seq)$/;"	v
 off_seq	extract_fims.py	/^off_seq = (upstream + str(Seq(fims).reverse_complement()) + downstream).upper()$/;"	v
-on_hit	extract_fims.py	/^        on_hit = check_alignment(read_seq, on_seq)$/;"	v
+on_hit	extract_fims.py	/^            on_hit = check_alignment(read_seq, on_seq)$/;"	v
 on_seq	extract_fims.py	/^on_seq = (upstream + fims + downstream).upper()$/;"	v
 output_folder	extract_fims.py	/^output_folder = Path(sys.argv[2])$/;"	v
 output_folder	gather_breseq_output_esch.py	/^output_folder = Path("\/home\/anv888\/Scratch\/Genomics\/Data_LTEE_ecoli")$/;"	v
 output_folder	gather_breseq_output_rpoS.py	/^output_folder = Path("\/home\/anv888\/Scratch\/Genomics\/Data_rpoS")$/;"	v
 output_folder	gather_breseq_output_vibrio.py	/^output_folder = Path("\/home\/antoine\/Documents\/Travel\/Genomics\/Vibrio\/Gathered_Breseq_data")$/;"	v
-quality	extract_fims.py	/^        quality = record.letter_annotations["phred_quality"]$/;"	v
+pop_variants	extract_fims.py	/^    pop_variants = IR_variants[raw_pop]$/;"	v
+pop_variants_rev	extract_fims.py	/^    pop_variants_rev = [str(Seq(v).reverse_complement()) for v in pop_variants]$/;"	v
+pre_hit	extract_fims.py	/^                pre_hit = True$/;"	v
+pre_hit	extract_fims.py	/^        pre_hit = False$/;"	v
+raw_pop	extract_fims.py	/^    raw_pop = name[1]$/;"	v
 read_seq	extract_fims.py	/^        read_seq = str(record.seq)$/;"	v
 subfolders	gather_breseq_output_esch.py	/^subfolders = ["GD", "VCF", "HTML", "Coverage"]$/;"	v
 subfolders	gather_breseq_output_rpoS.py	/^subfolders = ["GD", "VCF", "HTML", "Coverage"]$/;"	v

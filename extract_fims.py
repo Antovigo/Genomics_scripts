@@ -8,9 +8,22 @@ from pathlib import Path
 import pandas as pd
 import sys
 
+# Target context
 upstream = 'cgccatactgtgcgttataccgccagtaatgctgctcgttttgccggattatgggaaagaaataatctcataaacgaaaaattaaaaagagaagaggtttgatttaacttattgataataaagttaaaaaaacaaataaatacaagacaa'
 fims = 'ttggggccaaactgtccatatcataaataagttacgtattttttctcaagcataaaaatattaaaaaacgacaaaaagcatctaactgtttgatatgtaaattatttctattgtaaattaatttcacatcacctccgctatatgtaaagctaacgtttctgtggctcgacgcatcttcctcattcttctctccaaaaaccacctcatgcaatataaacatctataaataaagataacaatagaatattaagccaacaaataaactgaaaaagtttgtccgcgatgctttcctctatgagtcaaaatggccccaa'
 downstream = 'atgtttcatcttttgggggaaaactgtgcagtgttggcagtcaaactcgtttacaaaacaaagtgtacagaacgactgcccatgtcgatttagaaatagttttttgaaaggaaagcagcatgaaaattaaaactctggcaatcgttgttc'
+
+# Previously identified variants of the IR
+IR_variants = {
+'A': ['TTGGGGCCA'], 
+'B': ['TTGGGGCCA'], 
+'C': ['TTGGGGCCA', 'TTGGGCCAA'], 
+'D': ['TTGGGGCCA'], 
+'E': ['TTGGGGCCA', 'TTGGGCCAA'], 
+'F': ['TTGGGGCCA', 'TTGGGCCAA'], 
+'G': ['TTGGGGCCA', 'TTGGAGCCA', 'TTGGGCCAA', 'TTGGGCCAT'], 
+'H': ['TTGGGGCCA', 'TTGGGTCCA']
+}
 
 on_seq = (upstream + fims + downstream).upper()
 off_seq = (upstream + str(Seq(fims).reverse_complement()) + downstream).upper()
@@ -76,29 +89,43 @@ files = input_folder.rglob('*.fastq')
 
 for file in files:
 
-    print(f"Processing {file}")
+    name = Path(file).stem
+    print(f"Processing {name}", flush = True)
 
     hits = []
+
+    # Which IR variants to screen for?
+    raw_pop = name[1]
+    pop_variants = IR_variants[raw_pop]
+    pop_variants_rev = [str(Seq(v).reverse_complement()) for v in pop_variants]
 
     for read_id, record in enumerate(SeqIO.parse(file, "fastq")):
 
         read_seq = str(record.seq)
-        quality = record.letter_annotations["phred_quality"]
 
-        # Align to ON orientation
-        on_hit = check_alignment(read_seq, on_seq)
-        if on_hit:
-            print(f'On hit for {read_id}')
-            hits.append([read_id, True] + on_hit)
+        # Pre-screening: check for IR sequence in the read
+        pre_hit = False
+        for v in pop_variants + pop_variants_rev:
+            if v in read_seq:
+                pre_hit = True
+                break
 
-        # Align to OFF orientation
-        off_hit = check_alignment(read_seq, off_seq)
-        if off_hit:
-            print(f'Off hit for {read_id}')
-            hits.append([read_id, False] + off_hit)
+        # If the read passed the pre-screening, run proper alignment
+        if pre_hit:
+
+            # Align to ON orientation
+            on_hit = check_alignment(read_seq, on_seq)
+            if on_hit:
+                print(f'On hit for {read_id}', flush = True)
+                hits.append([read_id, True] + on_hit)
+
+            # Align to OFF orientation
+            off_hit = check_alignment(read_seq, off_seq)
+            if off_hit:
+                print(f'Off hit for {read_id}', flush = True)
+                hits.append([read_id, False] + off_hit)
 
     df = pd.DataFrame(hits, columns=['read_id', 'on', 'read_seq', 'score', 'top_strand', 'read_start', 'read_end', 'ref_start', 'ref_end', 'mutations'])
 
-    name = Path(file).stem
     df['name'] = name
     df.to_csv(output_folder / f'fims_{name}.tsv', sep = '\t', index = False)
