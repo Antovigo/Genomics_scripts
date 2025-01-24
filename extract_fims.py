@@ -97,8 +97,6 @@ for file in files:
             print(f'Off hit for {read_id}')
             hits.append([read_id, False] + off_hit)
 
-        break
-
     df = pd.DataFrame(hits, columns=['read_id', 'on', 'read_seq', 'score', 'top_strand', 'read_start', 'read_end', 'ref_start', 'ref_end', 'mutations'])
 
     name = Path(file).stem
