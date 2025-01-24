@@ -13,4 +13,4 @@ output_folder="/n/scratch/users/a/anv888/Genomics/FimS_Reads"
 module load miniconda3
 source activate breseq
 
-/home/anv888/Code/Genomics_scripts $reads_folder $output_folder
+/home/anv888/Code/Genomics_scripts/extract_fims.py $reads_folder $output_folder
