@@ -22,7 +22,8 @@ IR_variants = {
 'E': ['TTGGGGCCA', 'TTGGGCCAA'], 
 'F': ['TTGGGGCCA', 'TTGGGCCAA'], 
 'G': ['TTGGGGCCA', 'TTGGAGCCA', 'TTGGGCCAA', 'TTGGGCCAT'], 
-'H': ['TTGGGGCCA', 'TTGGGTCCA']
+'H': ['TTGGGGCCA', 'TTGGGTCCA'],
+'W': ['TTGGGGCCA']
 }
 
 on_seq = (upstream + fims + downstream).upper()
@@ -90,7 +91,13 @@ files = input_folder.rglob('*.fastq')
 for file in files:
 
     name = Path(file).stem
-    print(f"Processing {name}", flush = True)
+
+    # Check whether it's already processed (output file exists)
+    if (output_folder / f'fims_{name}.tsv').exists():
+        print(f"{name} is already processed, skipping.", flush = True)
+        continue
+
+    print(f"Processing {name}.", flush = True)
 
     hits = []
 
@@ -116,13 +123,13 @@ for file in files:
             # Align to ON orientation
             on_hit = check_alignment(read_seq, on_seq)
             if on_hit:
-                print(f'On hit for {read_id}', flush = True)
+                # print(f'On hit for {read_id}', flush = True)
                 hits.append([read_id, True] + on_hit)
 
             # Align to OFF orientation
             off_hit = check_alignment(read_seq, off_seq)
             if off_hit:
-                print(f'Off hit for {read_id}', flush = True)
+                # print(f'Off hit for {read_id}', flush = True)
                 hits.append([read_id, False] + off_hit)
 
     df = pd.DataFrame(hits, columns=['read_id', 'on', 'read_seq', 'score', 'top_strand', 'read_start', 'read_end', 'ref_start', 'ref_end', 'mutations'])
