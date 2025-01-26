@@ -1,0 +1,2 @@
+#!/bin/bash
+ls -1d "$1/*/output/*" | grep vcf | cut -d '/' -f 7- | sort
