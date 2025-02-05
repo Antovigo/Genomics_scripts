@@ -24,7 +24,8 @@ def get_file_mapping(name):
         (input_folder / name / "output/output.vcf", output_folder / "VCF" / f"{name.name}.vcf"),
         (input_folder / name / "data/annotated.gd", output_folder / "GD" / f"{name.name}.gd"),
         (input_folder / name / "output/index.html", output_folder / "HTML" / f"{name.name}.html"),
-        (input_folder / name / "08_mutation_identification/U00096.coverage.tab", output_folder / "Coverage" / f"{name.name}.coverage.tab") # for e coli
+        (input_folder / name / "08_mutation_identification/U00096.coverage.tab", output_folder / "Coverage" / f"{name.name}_U00096.coverage.tab"), # for e coli
+        (input_folder / name / "08_mutation_identification/JX871397.coverage.tab", output_folder / "Coverage" / f"{name.name}_JX871397.coverage.tab") # for phage phi80
         # (input_folder / name / "08_mutation_identification/NZ_CP009977.coverage.tab", output_folder / "Coverage" / f"{name.name}_chr1.coverage.tab"), # for v natriegens
         # (input_folder / name / "08_mutation_identification/NZ_CP009978.coverage.tab", output_folder / "Coverage" / f"{name.name}_chr2.coverage.tab") # for v natriegens
     ]
