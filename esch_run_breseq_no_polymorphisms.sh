@@ -7,13 +7,14 @@
 #SBATCH -e output/%x_%j.err                 # File to which STDERR will be writtenh
 
 # References
-ecoli_chr="/n/scratch/users/a/anv888/Genomics/Reference_genomes/rpoS_reference.gb"
-vnat_chr1="/n/scratch/users/a/anv888/Genomics/Reference_genomes/NZ_CP009977.1.gb"
-vnat_chr2="/n/scratch/users/a/anv888/Genomics/Reference_genomes/NZ_CP009978.1.gb"
+#ecoli_chr="/n/scratch/users/a/anv888/Genomics/Reference_genomes/rpoS_reference.gb"
+ecoli_chr="/n/scratch/users/a/anv888/Genomics/MG1655_U00096_with_phi80_genome.gb"
+#vnat_chr1="/n/scratch/users/a/anv888/Genomics/Reference_genomes/NZ_CP009977.1.gb"
+#vnat_chr2="/n/scratch/users/a/anv888/Genomics/Reference_genomes/NZ_CP009978.1.gb"
 
 # Folders
-reads_folder="/n/scratch/users/a/anv888/Genomics/Illumina_DNA_Reads_rpoS"
-breseq_folder="/n/scratch/users/a/anv888/Genomics/Breseq_output_rpoS"
+reads_folder="/n/scratch/users/a/anv888/Genomics/Illumina_DNA_Reads_MFepsilon"
+breseq_folder="/n/scratch/users/a/anv888/Genomics/Breseq_output_MFepsilon"
 
 lineage=$1
 
@@ -23,6 +24,13 @@ source activate breseq
 # Clear empty folders
 #find $breseq_folder -type d -empty -delete
 
+echo "Files to process:"
+for i in $reads_folder/$lineage
+do
+	echo $i
+done
+
+echo "Processing files:"
 for i in $reads_folder/$lineage*
 do
         name=$(basename $i)
