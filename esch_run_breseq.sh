@@ -29,7 +29,7 @@ source activate breseq
 # Clear empty folders
 #find $breseq_folder -type d -empty -delete
 
-echo "Files to process:"
+echo "Files to process (exact match):"
 for i in $reads_folder/$lineage
 do
 	echo $i

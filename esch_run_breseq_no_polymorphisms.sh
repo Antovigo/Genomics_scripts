@@ -25,7 +25,7 @@ source activate breseq
 #find $breseq_folder -type d -empty -delete
 
 echo "Files to process:"
-for i in $reads_folder/$lineage
+for i in $reads_folder/$lineage*
 do
 	echo $i
 done
