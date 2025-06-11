@@ -31,7 +31,7 @@ lineage=$1
 
 echo "Files to process (wild match):"
 
-for i in $reads_folder/$lineage*
+for i in $reads_folder/*$lineage*
 do
 	echo $i
 done

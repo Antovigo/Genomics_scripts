@@ -30,13 +30,13 @@ source activate breseq
 #find $breseq_folder -type d -empty -delete
 
 echo "Files to process (wild match):"
-for i in $reads_folder/$lineage*
+for i in $reads_folder/*$lineage*
 do
 	echo $i
 done
 
 echo "Processing files:"
-for i in $reads_folder/$lineage*
+for i in $reads_folder/*$lineage*
 do
         name=$(basename $i)
         input_folder=$reads_folder/$name
