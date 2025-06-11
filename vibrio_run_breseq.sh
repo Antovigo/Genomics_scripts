@@ -18,8 +18,8 @@ vnat_chr1="/n/scratch/users/a/anv888/Genomics/Reference_genomes/NZ_CP009977.1.gb
 vnat_chr2="/n/scratch/users/a/anv888/Genomics/Reference_genomes/NZ_CP009978.1.gb"
 
 # Folders
-reads_folder="/n/scratch/users/a/anv888/Genomics/Illumina_DNA_Reads_LTEE_ecoli"
-breseq_folder="/n/scratch/users/a/anv888/Genomics/Breseq_output_LTEE_ecoli"
+reads_folder="/n/scratch/users/a/anv888/Genomics/Illumina_DNA_Reads_06_25"
+breseq_folder="/n/scratch/users/a/anv888/Genomics/Breseq_output_06_25"
 
 lineage=$1
 
